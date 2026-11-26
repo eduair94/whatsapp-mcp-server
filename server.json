@@ -1,0 +1,48 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.checkleaked/whatsapp-data",
+  "title": "WhatsApp Data API",
+  "description": "WhatsApp number lookup, profiles, business data and OSINT. Pay per call in USDC (x402) or use a key.",
+  "version": "1.1.1",
+  "websiteUrl": "https://whatsapp.checkleaked.cc",
+  "repository": {
+    "url": "https://github.com/eduair94/whatsapp-mcp-server",
+    "source": "github"
+  },
+  "icons": [
+    {
+      "src": "https://whatsapp.checkleaked.cc/favicon.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": ["any"]
+    },
+    {
+      "src": "https://whatsapp.checkleaked.cc/favicon-96x96.png",
+      "mimeType": "image/png",
+      "sizes": ["96x96"]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://whatsapp-mcp.checkleaked.com/mcp",
+      "headers": [
+        {
+          "name": "x-rapidapi-key",
+          "description": "Optional prepaid API key (https://whatsapp.checkleaked.cc). Omit it to pay per tool call in USDC on Base with x402.",
+          "isSecret": true
+        }
+      ]
+    },
+    {
+      "type": "sse",
+      "url": "https://whatsapp-mcp.checkleaked.com/sse",
+      "headers": [
+        {
+          "name": "x-rapidapi-key",
+          "description": "Optional prepaid API key (https://whatsapp.checkleaked.cc). Omit it to pay per tool call in USDC on Base with x402.",
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
